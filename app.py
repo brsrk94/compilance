@@ -8,6 +8,7 @@ import pickle
 import pandas as pd
 from datetime import datetime
 import io
+import os
 
 # Page configuration
 st.set_page_config(
@@ -237,8 +238,16 @@ st.markdown("""
 
 @st.cache_resource
 def load_model():
-    """Load the trained model and metadata"""
+    """Load the trained model and metadata, or train if missing"""
     try:
+        required_files = ['compliance_model.pkl', 'company_metadata.pkl', 'company_types.pkl']
+        if not all(os.path.exists(f) for f in required_files):
+            with st.spinner("Initializing data matrix... this may take a moment."):
+                from train_model import load_and_preprocess_data, create_company_compliance_mapping, save_model_artifacts
+                df = load_and_preprocess_data('mop_updated.xlsx')
+                mapping = create_company_compliance_mapping(df)
+                save_model_artifacts(mapping, df)
+        
         with open('compliance_model.pkl', 'rb') as f:
             model = pickle.load(f)
         with open('company_metadata.pkl', 'rb') as f:
@@ -246,8 +255,9 @@ def load_model():
         with open('company_types.pkl', 'rb') as f:
             company_types = pickle.load(f)
         return model, metadata, company_types
-    except FileNotFoundError:
-        st.error("System files missing. Run 'python train_model.py' first.")
+    except Exception as e:
+        st.error(f"Initialization Error: {str(e)}")
+        st.info("Ensure 'mop_updated.xlsx' and 'train_model.py' are present in the repository.")
         st.stop()
 
 def display_header():

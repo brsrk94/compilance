@@ -6,8 +6,6 @@ This script trains a model to predict compliances based on company type
 import pandas as pd
 import pickle
 import re
-from sklearn.preprocessing import LabelEncoder
-from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 
 def load_and_preprocess_data(excel_path='mop_updated.xlsx'):
