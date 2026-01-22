@@ -1,11 +1,11 @@
-# 📋 Compliance Predictor System
+# Compliance Matrix
 
-An AI-powered compliance prediction system that helps companies identify applicable compliances based on their company type.
+An AI-powered compliance identification system that helps companies identify applicable compliances based on their company type.
 
-## 🌟 Features
+## Features
 
 - **Smart Prediction**: ML-based compliance matching using company type
-- **Beautiful UI**: Modern, gradient-based design with smooth animations
+- **Minimalist UI**: Professional dark mode design with a technical dotted background
 - **Search & Filter**: Quickly find specific compliances
 - **Detailed Information**: Complete compliance details including:
   - Obligation ID and Title
@@ -17,7 +17,7 @@ An AI-powered compliance prediction system that helps companies identify applica
 - **Export Functionality**: Download results as CSV
 - **Real-time Statistics**: View compliance counts and breakdowns
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Install Dependencies
 
@@ -54,19 +54,19 @@ streamlit run app.py
 
 The app will open in your browser at `http://localhost:8501`
 
-## 📊 How It Works
+## How It Works
 
 ### Data Structure
 
 The system extracts company types from the `obligation_id` field in the Excel file:
 - Format: `MOP-{COMPANY_TYPE}-{NUMBER}`
-- Example: `MOP-BIO-001` → Company Type: `BIO`
+- Example: `MOP-BIO-001` -> Company Type: `BIO`
 
 ### Model Training
 
 1. Loads compliance data from Excel
 2. Extracts company types using regex pattern matching
-3. Creates a mapping: `Company Type → List of Compliances`
+3. Creates a mapping: `Company Type -> List of Compliances`
 4. Saves the mapping and metadata as pickle files
 
 ### Prediction
@@ -77,16 +77,15 @@ When a user selects a company type:
 3. Shows statistics and breakdowns
 4. Allows filtering and export
 
-## 🎨 UI Features
+## UI Features
 
-- **Gradient Backgrounds**: Modern purple gradient theme
-- **Glassmorphism**: Frosted glass effect on cards
-- **Smooth Animations**: Slide-in effects for compliance cards
+- **Dark Mode**: Pure black background for high contrast and focus
+- **Dotted Background**: Subtle technical grid pattern for a professional aesthetic
+- **Glassmorphism**: Sophisticated frosted glass effects on cards
 - **Responsive Design**: Works on all screen sizes
-- **Interactive Elements**: Hover effects and transitions
-- **Color-coded Badges**: Easy identification of compliance types
+- **Space Grotesk Font**: Modern technical typography for clarity
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 compliance/
@@ -100,14 +99,14 @@ compliance/
 └── README.md                 # This file
 ```
 
-## 📈 Statistics
+## Statistics
 
 - **Total Company Types**: 73
 - **Total Compliances**: 134
 - **Regulation Types**: 25 different types
 - **Coverage**: All major energy sector company types
 
-## 🔍 Company Types Supported
+## Company Types Supported
 
 The system supports 73 company types including:
 - BIO (Biomass) - 7 compliances
@@ -116,7 +115,7 @@ The system supports 73 company types including:
 - TBCB, RPO, GEOA - 4 compliances each
 - And many more...
 
-## 💡 Usage Tips
+## Usage Tips
 
 1. **Select Company Type**: Choose from the dropdown in the sidebar
 2. **View Statistics**: Check the quick stats for overview
@@ -124,7 +123,7 @@ The system supports 73 company types including:
 4. **Export**: Download results as CSV for offline use
 5. **Explore Details**: Each card shows complete compliance information
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 - **Backend**: Python 3.x
 - **ML Framework**: scikit-learn
@@ -132,14 +131,14 @@ The system supports 73 company types including:
 - **UI Framework**: Streamlit
 - **Styling**: Custom CSS with modern design principles
 
-## 📝 Notes
+## Notes
 
 - All compliances are extracted from the official MOP (Ministry of Power) data
 - The system uses pattern matching to categorize compliances
 - Model can be retrained with updated Excel data
 - Export functionality preserves all compliance details
 
-## 🎯 Future Enhancements
+## Future Enhancements
 
 - Multi-company type selection
 - Compliance timeline view
@@ -148,10 +147,10 @@ The system supports 73 company types including:
 - Advanced filtering options
 - Compliance comparison between company types
 
-## 📄 License
+## License
 
-This project is created for compliance management and prediction purposes.
+This project is created for compliance management and identification purposes.
 
 ---
 
-**Built with ❤️ using Streamlit and ML**
+**Built using Streamlit and ML**
